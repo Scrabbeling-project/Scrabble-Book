@@ -8,7 +8,7 @@ This project contains the following elements:
 - Data streaming
 - Implementation of algorithms
 - Parallel programming using threads
-- Event oriented programming, DESKTOP application with GUI
+- Event oriented programming, desktop application with GUI
 
 
 
