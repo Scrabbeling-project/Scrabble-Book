@@ -1,6 +1,12 @@
 # Scrabble-Book
 
-ABUOT
+
+
+![screenshot2__2ooSl](https://user-images.githubusercontent.com/120463766/230887918-4e549825-7146-4edc-a3d6-13afc9a5c60f.jpg)
+
+
+
+  ABOUT
 
 This project contains the following elements:
 - Use of design and architecture patterns
@@ -8,33 +14,100 @@ This project contains the following elements:
 - Data streaming
 - Implementation of algorithms
 - Parallel programming using threads
-- Event oriented programming, DESKTOP application with GUI
-
-INTRODUCTION
-
-The objective of this project is to develop a scalable server for the Book Scrabble game. The game requires finding legal words from a set of books chosen for the game. However, searching for words in all the files for each query is not scalable as it would require a lot of I/O operations. Storing all the words in a HashSet would quickly run out of memory. To address these issues, the dictionary will use several filters.
-
-The first filter is the Cache Manager, which will keep in memory the answers to the most common queries. The search in the Cache Manager will be in O(1) time, and its size will be fixed according to a parameter that we define. Thus, given a query, the server will quickly check if the answer exists in the Cache Manager. If the answer exists, the server will return it. Otherwise, the server will pass the query to the next filter.
-
-The next filter is the Bloom Filter, an efficient and very economical algorithm that can say with absolute certainty whether a word is not found in the dictionary of books, and with a high probability whether a word is found. The Bloom Filter is a space-efficient data structure that can store a large number of items with a small memory footprint. It is suitable for our dictionary as we have a large number of words to store.
-
-If a user challenges the dictionary, thinking that the dictionary was wrong and the word is actually not found, then an I/O based search will be performed. The rules of the game will fine the challenger with points if they bothered the server for nothing, or they will give them a bonus if they were right. In any case, when an answer comes back, the Cache Manager will be updated to save unnecessary searches.
-
-Overall, this approach will make the dictionary scalable as it will minimize I/O operations and memory usage while providing fast and accurate responses to queries.
-
-
-FEATURES
-
-The software implementation of Book Scrabble comprises several features designed to enhance user experience and gameplay. 
-These include a user-friendly interface that facilitates the start and play of the game for up to four players, with support for concurrent player actions through the use of multi-threading technology.
-
-The software also integrates various cache management algorithms, including LRU, LFU, and BloomFilter, which optimize performance and resource utilization. Additionally, data structures have been incorporated to enable efficient word storage and retrieval.
-
-Furthermore, the software utilizes a dictionary to verify the validity of words created by players, ensuring adherence to game rules and fair play.
-A point system has also been implemented to calculate scores for each player based on the words they create, adding a competitive element to the game.
-
-Overall, these features enhance the functionality and usability of the software, providing a comprehensive and enjoyable gaming experience for users.
+- Event oriented programming, desktop application with GUI
 
 
 
 
+
+
+
+
+
+
+
+
+  INTRODUCTION
+
+- Objective: develop a scalable server for Book Scrabble game that finds legal words from set of books.
+- Searching all files for each query is not scalable due to many I/O operations.
+- Storing all words in a HashSet would quickly run out of memory
+- Dictionary will use several filters to address these issues
+- First filter: Cache Manager keeps answers to most common queries in memory for O(1) time search; size fixed according to defined parameter
+- Server checks if answer exists in Cache Manager; returns if found, passes query to next filter if not
+- Second filter: Bloom Filter is space-efficient data structure suitable for storing large number of words in dictionary; can say with certainty if word not found, with high probability if found
+- If user challenges dictionary and I/O search performed, rules of game fine challenger with points if wrong, give bonus if right; Cache Manager updated to avoid unnecessary searches
+- Overall approach minimizes I/O operations and memory usage while providing fast and accurate responses to queries, making dictionary scalable for Book Scrabble game.
+
+
+
+
+
+
+
+
+
+
+   FEATURES
+
+- Software implementation of Book Scrabble includes features to enhance user experience and gameplay
+- User-friendly interface facilitates start and play of game for up to four players, with support for concurrent player actions through multi-threading technology
+- Various cache management algorithms, including LRU, LFU, and BloomFilter, optimize performance and resource utilization
+- Data structures incorporated to enable efficient word storage and retrieval
+- Dictionary used to verify validity of words created by players, ensuring adherence to game rules and fair play
+- Point system implemented to calculate scores for each player based on words they create, adding competitive element to game
+- Overall, features enhance functionality and usability of software, providing comprehensive and enjoyable gaming experience for users.
+
+
+
+
+
+
+
+
+
+
+Definitions
+
+Tile:
+- A small board containing a letter and its value in the game - the amount of points the letter is worth.
+- In the following chart you can see how much each letter is worth in the game.
+   
+
+![229486188-1f5ab09f-8f78-4e12-b2d1-8aea60616c7c](https://user-images.githubusercontent.com/120463766/230888262-b253da60-e33e-4fab-b39c-9737560c0379.png)
+
+
+
+
+
+
+
+
+
+
+Bag:
+
+- A bag containing 98 tiles
+- Allows players to randomly remove tiles
+- The number of false tiles for each letter at the beginning of the game:
+
+![229486334-5985074d-ffa1-4366-bc21-8acfd1d4445d](https://user-images.githubusercontent.com/120463766/230883575-bdfdd520-95bc-4762-8a04-2ad453644cc5.png)
+
+
+Board:
+
+    
+  -  Two-dimensional board size 15x15.
+  
+     For the board some bonus slots:
+- The central square (marked with a star) doubles the value of the word written on it.
+- Squares that double the value of the letter on them (light blue).
+- Squares that triple the value of the letter on them (blue).
+- Slots that double the value of the entire word (yellow).
+- Squares that match the value of the entire word (red).
+ 
+![229484247-4854a0a0-7e4f-4f2d-9e87-60fadd52d077](https://user-images.githubusercontent.com/120463766/230883630-63829917-9393-4991-81f6-1978aa649f5d.png)
+ 
+ 
+ 
+ 
