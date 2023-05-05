@@ -2,7 +2,7 @@
 
 
 
-  ABOUT
+  **ABOUT**
 
 This project contains the following elements:
 - Use of design and architecture patterns
@@ -23,7 +23,7 @@ This project contains the following elements:
 
 
 
-  INTRODUCTION
+  **INTRODUCTION**
 
 - Objective: develop a scalable server for Book Scrabble game that finds legal words from set of books.
 - Searching all files for each query is not scalable due to many I/O operations.
@@ -44,7 +44,7 @@ This project contains the following elements:
 
 
 
-   FEATURES
+   **FEATURES**
 
 - Software implementation of Book Scrabble includes features to enhance user experience and gameplay
 - User-friendly interface facilitates start and play of game for up to four players, with support for concurrent player actions through multi-threading technology
@@ -63,9 +63,9 @@ This project contains the following elements:
 
 
 
-Definitions
+**Definitions**
 
-Tile:
+**Tile**:
 - A small board containing a letter and its value in the game - the amount of points the letter is worth.
 - In the following chart you can see how much each letter is worth in the game.
    
@@ -81,7 +81,7 @@ Tile:
 
 
 
-Bag:
+**Bag**:
 
 - A bag containing 98 tiles
 - Allows players to randomly remove tiles
@@ -90,7 +90,7 @@ Bag:
 ![229486334-5985074d-ffa1-4366-bc21-8acfd1d4445d](https://user-images.githubusercontent.com/120463766/230883575-bdfdd520-95bc-4762-8a04-2ad453644cc5.png)
 
 
-Board:
+**Board**:
 
     
   -  Two-dimensional board size 15x15.
