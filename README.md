@@ -2,10 +2,6 @@
 
 
 
-![screenshot2__2ooSl](https://user-images.githubusercontent.com/120463766/230887918-4e549825-7146-4edc-a3d6-13afc9a5c60f.jpg)
-
-
-
   ABOUT
 
 This project contains the following elements:
