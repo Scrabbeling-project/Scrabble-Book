@@ -16,5 +16,4 @@ public class Host implements MyModel{
     DictionaryManager dictionaryManager;
     CacheManager cacheManager;
     IOSearcher ioSearcher;
-
 }

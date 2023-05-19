@@ -3,6 +3,10 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO passTurn();
+//TODO endTurn();
+//TODO endGame();
+
 public class Player {
     private String name;
 
@@ -17,11 +21,6 @@ public class Player {
         this.idPlayer = idPlayer;
         this.tile = new ArrayList<Tile>();
     }
-
-    //TODO passTurn();
-    //TODO endTurn();
-
-    //TODO endGame();
 
 
     public String getName() {
