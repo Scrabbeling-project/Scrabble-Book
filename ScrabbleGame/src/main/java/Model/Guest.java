@@ -66,6 +66,8 @@ public class Guest extends Observable implements MyModel{
         throw new UnsupportedOperationException("Unimplemented method 'startGame'");
     }
 
+
+    
     @Override
     public void endGame() {
         // TODO Auto-generated method stub
