@@ -59,4 +59,22 @@ public class Guest extends Observable implements MyModel{
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    @Override
+    public void startGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
+    }
+
+    @Override
+    public void endGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'endGame'");
+    }
+
+    @Override
+    public void passTurn() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'passTurn'");
+    }
 }
