@@ -35,7 +35,7 @@ public class HelloApplication extends Application {
         // Create a welcome message
         Text welcomeText = new Text("Welcome to Scrabble!");
         welcomeText.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        welcomeText.setStyle("-fx-fill: white; -fx-font-weight: bold; -fx-alignment: center;");
+        welcomeText.setStyle("-fx-fill: black; -fx-font-weight: bold; -fx-alignment: center;");
 
         // Create a button to start a new game as a Host
         Button newGameHostButton = new Button("New Game Host");
