@@ -15,7 +15,7 @@ public class Tile
         this.letter = letter;
         this.score = score;
     }
-
+//;adksmvopadsmvpdaonvpodsnvodivdasn
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

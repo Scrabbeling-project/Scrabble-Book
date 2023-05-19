@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Board {
+    // SKNXcsadncndsakcn
 
     private static HashMap<String, String> bonusBoard = new HashMap<>();
     private ArrayList<String> specials = new ArrayList<>();
