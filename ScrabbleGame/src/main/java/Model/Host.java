@@ -3,6 +3,12 @@ package Model;
 import java.net.Socket;
 import java.util.List;
 
+import Backend.Board;
+import Backend.CacheManager;
+import Backend.DictionaryManager;
+import Backend.IOSearcher;
+import Backend.MyServer;
+
 
 // The first player
 public class Host implements MyModel

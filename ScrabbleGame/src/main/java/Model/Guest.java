@@ -3,6 +3,8 @@ package Model;
 import java.net.Socket;
 import java.util.Observable;
 
+import Backend.Tile;
+
 public class Guest extends Observable implements MyModel{
 
     Socket socket;
