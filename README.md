@@ -15,7 +15,10 @@ This project contains the following elements:
 
 ClickUp Link:https://app.clickup.com/9003141720/v/g/8ca22jr-422
 ![image](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/8c88e4a7-1bae-4933-822f-137571df9167)
-![image](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/ccf5e49f-97a0-42d9-91b3-dc533e0a53a8)
+
+UML: https://lucid.app/lucidchart/967e7825-5bd1-4700-926c-638e48cdd197/edit?view_items=Kv4YMVJ~BrFN&invitationId=inv_3fe3a0f7-b41e-427f-92f6-de707acc7b42
+![uml](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/db592961-dc31-46d6-b42b-686b4004e4fb)
+
 
 
 
