@@ -69,8 +69,6 @@ public class Player {
         }
         return tiles;
 
-        ///  tiles in hand : A H B E Y
-        ///  word : H E Y 
     }
 
 
