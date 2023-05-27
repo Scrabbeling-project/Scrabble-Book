@@ -13,7 +13,8 @@ This project contains the following elements:
 - Event oriented programming, desktop application with GUI
 
 
-
+ClickUp Link:https://app.clickup.com/9003141720/v/g/8ca22jr-422
+![image](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/8c88e4a7-1bae-4933-822f-137571df9167)
 
 
 
