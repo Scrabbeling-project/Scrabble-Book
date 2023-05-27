@@ -1,9 +1,10 @@
 package Model;
 
+import Backend.Word;
+
 public interface MyModel {
     
-    void startGame();
-    void endGame();
+    boolean endTurn(Word word, boolean challenge);
     void passTurn();
 
 }

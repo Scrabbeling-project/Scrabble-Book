@@ -1,82 +1,73 @@
 package Model;
 
-import java.net.Socket;
-import java.util.Observable;
+import Backend.*;
 
-public class Guest extends Observable implements MyModel{
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Guest implements MyModel {
 
     Socket socket;
-    Tile[][] boardStatus;
-    String[] score;
-    int bagSize; //Tiles left in bag
-    Player player;
+    private Board board;
+    private String playerName;
 
-
-    public Guest(Socket socket, Tile[][] boardStatus, String[] score, int bagSize, Player player) {
-        this.socket = socket;
-        this.boardStatus = boardStatus;
-        this.score = score;
-        this.bagSize = bagSize;
-        this.player = player;
+    public Guest(String playerName) {
+        this.board=Backend.Board.getBoard();
+        this.playerName=playerName;
     }
 
-    public Socket getSocket() {
-        return socket;
+
+    public void start_game(String host) {
+        try {
+            socket = new Socket(host, 3001);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        // connect
+        //"<guestName>,<function>,<data>,<data>,<data>.."
+        String command = playerName+";connect;"+host+";3001";
+        String response = sendCommand(command);
+
     }
 
-    public void setSocket(Socket socket) {
-        this.socket = socket;
-    }
+    public String sendCommand(String command) {
+        try {
+            PrintWriter writer = new PrintWriter(socket.getOutputStream());
+           //"name;function;data;data...."
+            writer.println(command);
+            writer.flush();
 
-    public Tile[][] getBoardStatus() {
-        return boardStatus;
-    }
+            Scanner scanner = new Scanner(new InputStreamReader(socket.getInputStream()));
+            String response = scanner.nextLine();
 
-    public void setBoardStatus(Tile[][] boardStatus) {
-        this.boardStatus = boardStatus;
-    }
+            writer.close();
+            scanner.close();
 
-    public String[] getScore() {
-        return score;
-    }
+            return response;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-    public void setScore(String[] score) {
-        this.score = score;
-    }
-
-    public int getBagSize() {
-        return bagSize;
-    }
-
-    public void setBagSize(int bagSize) {
-        this.bagSize = bagSize;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
     }
 
     @Override
-    public void startGame() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
-    }
-
-
-    
-    @Override
-    public void endGame() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'endGame'");
+    public boolean endTurn(Word word, boolean challenge) {
+        // endTurn
+        String command = playerName+";"+"endTurn;"+word+";"+word.getRow()+";"+word.getCol()+";"+word.isVertical()+";"+challenge;
+        String response = sendCommand(command);
+        boolean isOK = Boolean.parseBoolean(response);
+        return isOK;
     }
 
     @Override
     public void passTurn() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'passTurn'");
+        //passTurn
+        String command = playerName+";"+"passTurn";
+        String response = sendCommand(command);
     }
+
+
 }
