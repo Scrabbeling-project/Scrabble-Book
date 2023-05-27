@@ -15,6 +15,7 @@ This project contains the following elements:
 
 ClickUp Link:https://app.clickup.com/9003141720/v/g/8ca22jr-422
 ![image](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/8c88e4a7-1bae-4933-822f-137571df9167)
+![image](https://github.com/Scrabbeling-project/Scrabble-Book/assets/118252959/ccf5e49f-97a0-42d9-91b3-dc533e0a53a8)
 
 
 
