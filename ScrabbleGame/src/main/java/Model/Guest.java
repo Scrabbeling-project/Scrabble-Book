@@ -26,8 +26,6 @@ public class Guest implements MyModel {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        // connect
-        //"<guestName>,<function>,<data>,<data>,<data>.."
         String command = playerName+";connect;"+host+";3001";
         String response = sendCommand(command);
 

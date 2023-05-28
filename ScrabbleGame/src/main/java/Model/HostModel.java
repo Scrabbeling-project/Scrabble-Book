@@ -45,7 +45,6 @@ public class HostModel implements MyModel{
     }
 
     public void connectToPTM1(String serverAddress, int serverPort) {
-        //Connect to the server
         try {
             socket = new Socket(serverAddress, serverPort);
         } catch (IOException e) {
@@ -157,8 +156,44 @@ public class HostModel implements MyModel{
 
     @Override
     public boolean endTurn(Word word, boolean challenge) {
-        
+        String message = createMessage(word, challenge);
+        sendToServer(message);
+        String result = receiveFromPTM1();
+        boolean isInDictionary = result == "true" ? true : false;
+        if (!isInDictionary) {
+            return false;
+        }
+        int score = board.tryPlaceWord(word);
+        if (score == 0) {
+            return false;
+        }
+        notifyState(word);
+
+        players.get(currentPlayerIndex).updateScore(score);
+        tileDivision(currentPlayerIndex);
+        setCurrentPlayerIndex((this.currentPlayerIndex + 1) % 3);
+        if (bag.size() == 0) {
+            end_game();
+        }
+        return true;
     }
+
+    public void notifyState(Word word) {
+        //the host need to notify to the guests for updates after every turn
+        GameState gameState=new GameState(players,players.get(currentPlayerIndex).getPlayer_name(),word);
+        //loop of players socket to send them massage
+        //"<function>,<data>,<data>,<data>.."
+        //"updateGameState,gameState.toString()"
+
+        // loop on Guest sockets
+        for(Player p :players){
+            if(p.isGuest()){
+                //p.getGuestSocket()
+            }
+        }
+
+    }
+    
 
     @Override
     public void passTurn() {
