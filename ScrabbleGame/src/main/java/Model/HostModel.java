@@ -167,7 +167,7 @@ public class HostModel implements MyModel{
         if (score == 0) {
             return false;
         }
-        notifyState(word);
+        /// need to add notification
 
         players.get(currentPlayerIndex).updateScore(score);
         tileDivision(currentPlayerIndex);
@@ -176,22 +176,6 @@ public class HostModel implements MyModel{
             end_game();
         }
         return true;
-    }
-
-    public void notifyState(Word word) {
-        //the host need to notify to the guests for updates after every turn
-        GameState gameState=new GameState(players,players.get(currentPlayerIndex).getPlayer_name(),word);
-        //loop of players socket to send them massage
-        //"<function>,<data>,<data>,<data>.."
-        //"updateGameState,gameState.toString()"
-
-        // loop on Guest sockets
-        for(Player p :players){
-            if(p.isGuest()){
-                //p.getGuestSocket()
-            }
-        }
-
     }
     
 
@@ -206,17 +190,15 @@ public class HostModel implements MyModel{
     }
 
     public String createMessage(Word word, boolean challenge) {
-        String message = challenge ? "C;" : "Q;";
+        String message = "";
+        if(challenge) { message = "C";}
+        else {message = "Q";}
         String w = "";
 
         for (int i = 0; i < word.getTiles().length; i++) {
             w += word.getTiles()[i].letter;
         }
-
-        //add the name of the books
-
         message += ";book1;book2;book3;" + w;
-
         return message;
     }
 
