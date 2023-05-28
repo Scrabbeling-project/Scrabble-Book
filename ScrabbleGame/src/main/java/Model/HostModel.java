@@ -45,7 +45,6 @@ public class HostModel implements MyModel{
     }
 
     public void connectToPTM1(String serverAddress, int serverPort) {
-        //Connect to the server
         try {
             socket = new Socket(serverAddress, serverPort);
         } catch (IOException e) {
@@ -157,8 +156,28 @@ public class HostModel implements MyModel{
 
     @Override
     public boolean endTurn(Word word, boolean challenge) {
-        
+        String message = createMessage(word, challenge);
+        sendToServer(message);
+        String result = receiveFromPTM1();
+        boolean isInDictionary = result == "true" ? true : false;
+        if (!isInDictionary) {
+            return false;
+        }
+        int score = board.tryPlaceWord(word);
+        if (score == 0) {
+            return false;
+        }
+        /// need to add notification
+
+        players.get(currentPlayerIndex).updateScore(score);
+        tileDivision(currentPlayerIndex);
+        setCurrentPlayerIndex((this.currentPlayerIndex + 1) % 3);
+        if (bag.size() == 0) {
+            end_game();
+        }
+        return true;
     }
+    
 
     @Override
     public void passTurn() {
@@ -171,17 +190,15 @@ public class HostModel implements MyModel{
     }
 
     public String createMessage(Word word, boolean challenge) {
-        String message = challenge ? "C;" : "Q;";
+        String message = "";
+        if(challenge) { message = "C";}
+        else {message = "Q";}
         String w = "";
 
         for (int i = 0; i < word.getTiles().length; i++) {
             w += word.getTiles()[i].letter;
         }
-
-        //add the name of the books
-
         message += ";book1;book2;book3;" + w;
-
         return message;
     }
 

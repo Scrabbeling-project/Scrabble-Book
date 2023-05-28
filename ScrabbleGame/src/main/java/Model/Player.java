@@ -17,10 +17,10 @@ public class Player {
     private boolean isGuest;
     private Socket socket;
 
-    public Player(String name) {
+    public Player(String name,boolean isGuest) {
         this.tilesInHand = new ArrayList<>();
         this.name = name;
-        this.isGuest = false;
+        this.isGuest = isGuest;
         this.score = 0;
     }
 
@@ -39,36 +39,28 @@ public class Player {
     }
 
     public void removeFromHand(String word) {
-        if (word == null) return;
+        if (word == null) return; // T,I,H,E,G,S,K
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             for (int j = 0; j < tilesInHand.size(); j++) {
                 if( c == tilesInHand.get(j).letter) {
                     tilesInHand.remove(j);
                 }
-
-            //find tile in player_tiles
-            //remove tile from player_tiles
         }
     }
 }
     public List<Tile> getWordTiles(String word) { //HEY
         if (word == null) return null;
         List<Tile> tiles = new ArrayList<>();
+        System.out.println(word.length());
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            //find tile in player_tiles
-            for (int j = 0; j < tilesInHand.size(); j++) {
-                if( c == tilesInHand.get(j).letter){
-                    tiles.add(tilesInHand.get(j));
-                    tilesInHand.remove(j);
-                    break;
-                }    
+            Tile tile = Tile.Bag.getBag().getTile(c);
+            if(tile != null) {
+                tiles.add(tile);
             }
-            //add tile to tiles
         }
         return tiles;
-
     }
 
 
