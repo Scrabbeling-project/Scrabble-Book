@@ -60,7 +60,8 @@ public class BloomFilter {
         for (int i = 0; i < a.length; i++) {
             if (arr.get(i))
                 a[i] = 1;
-            else a[i] = 0;
+            else
+                a[i] = 0;
         }
 
         StringBuilder res = new StringBuilder();

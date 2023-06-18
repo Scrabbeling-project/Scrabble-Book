@@ -69,7 +69,7 @@ public class GuestHandler implements ClientHandler {
     }
 
     private void connectToGuestMode(String name, String[] commands) {
-        Player p = new Player(name);
+        Player p = new Player(name,true);
         p.setGuest(true);
         String hostToGuest= commands[2];
         int port = Integer.parseInt(commands[3]);

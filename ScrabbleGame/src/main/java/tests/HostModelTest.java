@@ -14,16 +14,16 @@ public class HostModelTest {
    
 
     static void testAddAndGetPlayer() {
-        hm.addPlayer(new Player("yakov"));
+        hm.addPlayer(new Player("yakov",true));
         Player p = hm.getPlayer("yakov");
         if(p==null) { System.out.println("player doesnt exist");}
     }
 
     static void testStartGame_testTileDivision(){
-        hm.addPlayer(new Player("victor"));
-        hm.addPlayer(new Player("erlich"));
-        hm.addPlayer(new Player("yakov"));
-        hm.addPlayer(new Player("shimshon"));
+        hm.addPlayer(new Player("victor",true));
+        hm.addPlayer(new Player("erlich",true));
+        hm.addPlayer(new Player("yakov",true));
+        hm.addPlayer(new Player("shimshon",true));
         hm.startGame();
         if(Board.getBoard() == null) { System.out.println("problem in create board");}
         if(Tile.Bag.getBag() == null) { System.out.println("problem in create bag");}

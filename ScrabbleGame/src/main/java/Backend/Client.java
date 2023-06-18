@@ -29,7 +29,7 @@ public class Client {
     }
 
     public static void main(String[] args) throws IOException {
-        Client client = new Client("10.100.102.127", 8080);
+        Client client = new Client("localhost", 8080);
         client.start();
     }
 }

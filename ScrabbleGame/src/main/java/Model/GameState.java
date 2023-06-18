@@ -29,7 +29,7 @@ public class GameState {
 
         String playerScores = "";
         for (Player player : players) {
-            playerScores += String.format("%s:%s,", player.getPlayer_name(), player.getScore());
+            playerScores += String.format("%s:%s,", player.getName(), player.getScore());
         }
         playerScores = playerScores.substring(0, playerScores.length() - 1);
 
