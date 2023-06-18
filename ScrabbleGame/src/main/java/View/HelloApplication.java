@@ -104,7 +104,7 @@ public class HelloApplication extends Application {
         borderPane.setBackground(new Background(background));
 
         // Create a text object to display the credits
-        Text creditsText = new Text("By Yonatan, Tal, Shai, Ori");
+        Text creditsText = new Text("By Tal, Shay, Ori");
         creditsText.setFont(Font.font("Arial", FontWeight.BOLD, 21));
         creditsText.setStyle("-fx-fill: yellow; -fx-font-weight: bold; -fx-alignment: center;");
 
